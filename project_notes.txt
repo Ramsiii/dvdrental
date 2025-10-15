@@ -1,0 +1,46 @@
+You are expected to create two tables that differ in granularity of the data they present.
+2:43
+The summary table is the one that should contain aggregated data to answer the business question.
+2:49
+And for this Performance Assessment you will be submitting a written document as well as a Panopto video.
+
+Keep in mind that you really want to make sure you provide answers to A1 through A6 very explicitly.
+3:15
+Part A is asking you to summarize the business report that you will create from the DVDRental database provided in the virtual lab.
+3:21
+For part A, you will want to write a few sentences, or maybe even a small paragraph summarizing your business report.
+
+
+
+Idea for analysis:
+
+The year is 1995.
+I plan to acquire a DVD Rental Store to Create a Streaming Service starting with 
+a small catalog of digitized DVDs from the store.
+
+Questions to ask:
+Which titles are the most popular over time?
+Which titles are rented repeatedly by the same customer?
+Which titles are returned late the most often?
+Which titles have never been rented/have been rented the least often?
+
+QUESTION: Which of these questions will produce a summary table and which will produce a detailed table?
+
+Questions to answer in Project Doc for section A of WGU project:
+
+1. Identify which fields will be included in the detailed table and the summary table?
+2. Describe the types of data fields used for the report. (For A2, you will need to 
+describe the information that each field from part A1 will contain, as well as their data type.
+This means you will need to identify if the field is going to be varchar, timestamp, integer and so on.)
+3. Identify at least two specific tables from the given dataset that will provide the data necessary 
+for the detailed table section and the summary table section of the report.
+4. Identify at least one field in the detailed table section that will require a custom transformation with a 
+user-defined function and explain why it should be transformed 
+(e.g., you might translate a field with a value of N to No and Y to Yes).
+"""
+(This requires you to explain why the data you chose to transform should be transformed.
+For instance, is there a business use for it?)
+5. Explain the different business uses of the detailed table section and the summary table section of the report.
+(As you answer this part, keep in mind the difference in granularity of your tables.)
+6. Explain how frequently your report should be refreshed to remain relevant to stakeholders.
+
