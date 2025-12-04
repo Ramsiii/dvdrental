@@ -27,3 +27,5 @@ SELECT r.rental_id, f.film_id, f.title, r.rental_date, get_time_period(r.rental_
 FROM rental r
 JOIN inventory i ON r.inventory_id = i.inventory_id
 JOIN film f ON i.film_id = f.film_id
+ 
+ -- test the first again
