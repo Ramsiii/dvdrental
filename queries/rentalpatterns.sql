@@ -30,3 +30,4 @@ JOIN film f ON i.film_id = f.film_id
  
  -- test the first again
  -- tested
+ -- add function and trigger to update most rented
