@@ -19,12 +19,15 @@ I plan to acquire a DVD Rental Store to Create a Streaming Service starting with
 a small catalog of digitized DVDs from the store.
 
 Questions to ask:
-Which titles are the most popular over time?
+THIS ONE: Which titles are the most popular over time?
+
+NOT THESE:
+*********************
 Which titles are rented repeatedly by the same customer?
 Which titles are returned late the most often?
 Which titles have never been rented/have been rented the least often?
+**********************
 
-QUESTION: Which of these questions will produce a summary table and which will produce a detailed table?
 
 Questions to answer in Project Doc for section A of WGU project:
 
