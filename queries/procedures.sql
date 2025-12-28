@@ -14,7 +14,7 @@ BEGIN
     SELECT 
         r.rental_id,
 		f.film_id,
-		f.title
+		f.title,
         r.rental_date,
         get_time_period(r.rental_date),
     FROM rental r
