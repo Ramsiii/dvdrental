@@ -84,3 +84,7 @@ AFTER INSERT ON rental
 FOR EACH ROW
 EXECUTE FUNCTION sync_detailed_rentals();
 
+
+-- List all existing Triggers:
+
+SELECT * FROM pg_trigger WHERE tgname LIKE 'trg_%';
