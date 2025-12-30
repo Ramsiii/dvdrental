@@ -7,7 +7,43 @@ trg_update_summary fires → UPDATE summary_popular_films
 
 */
 
--- Trigger to recalculate summary table:
+-- Trigger function to update detailed_rentals AFTER INSERT in rentals
+
+CREATE OR REPLACE FUNCTION sync_detailed_rentals()
+RETURNS TRIGGER AS $$
+DECLARE
+    v_film_id INTEGER;
+    v_title VARCHAR(255);
+BEGIN
+    -- Lookup film info from inventory and film tables
+    SELECT f.film_id, f.title
+    INTO v_film_id, v_title
+    FROM inventory i
+    JOIN film f ON i.film_id = f.film_id
+    WHERE i.inventory_id = NEW.inventory_id;
+    
+    -- Insert new rental into detailed_rentals
+    INSERT INTO detailed_rentals (rental_id, film_id, title, rental_date, time_period)
+    VALUES (
+        NEW.rental_id,
+        v_film_id,
+        v_title,
+        NEW.rental_date,
+        get_time_period(NEW.rental_date)
+    );
+    
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- TRIGGER to update detailed_rentals
+
+CREATE OR REPLACE TRIGGER trg_sync_detailed_rentals
+AFTER INSERT ON rental
+FOR EACH ROW
+EXECUTE FUNCTION sync_detailed_rentals();
+
+-- Trigger Function to recalculate summary table:
 
 CREATE OR REPLACE FUNCTION update_summary_table()
 RETURNS TRIGGER AS $$
@@ -48,41 +84,8 @@ AFTER INSERT ON detailed_rentals
 FOR EACH ROW
 EXECUTE FUNCTION update_summary_table();
 
--- Second Trigger function to update detailed_rentals AFTER INSERT in rentals
 
-CREATE OR REPLACE FUNCTION sync_detailed_rentals()
-RETURNS TRIGGER AS $$
-DECLARE
-    v_film_id INTEGER;
-    v_title VARCHAR(255);
-BEGIN
-    -- Lookup film info from inventory and film tables
-    SELECT f.film_id, f.title
-    INTO v_film_id, v_title
-    FROM inventory i
-    JOIN film f ON i.film_id = f.film_id
-    WHERE i.inventory_id = NEW.inventory_id;
-    
-    -- Insert new rental into detailed_rentals
-    INSERT INTO detailed_rentals (rental_id, film_id, title, rental_date, time_period)
-    VALUES (
-        NEW.rental_id,
-        v_film_id,
-        v_title,
-        NEW.rental_date,
-        get_time_period(NEW.rental_date)
-    );
-    
-    RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
 
--- TRIGGER to update detailed_rentals
-
-CREATE OR REPLACE TRIGGER trg_sync_detailed_rentals
-AFTER INSERT ON rental
-FOR EACH ROW
-EXECUTE FUNCTION sync_detailed_rentals();
 
 
 -- List all existing Triggers:
