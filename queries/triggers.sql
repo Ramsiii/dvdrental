@@ -85,9 +85,6 @@ FOR EACH ROW
 EXECUTE FUNCTION update_summary_table();
 
 
-
-
-
 -- List all existing Triggers:
 
 SELECT * FROM pg_trigger WHERE tgname LIKE 'trg_%';
