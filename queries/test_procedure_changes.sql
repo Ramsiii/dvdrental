@@ -1,7 +1,7 @@
 -- COMMENT OUT EACH STEP UNTIL READY --
 
 -- 1a. Show current state of detailed table
-SELECT COUNT(*) FROM detailed_rentals;  -- e.g., 16,044 rows
+-- SELECT COUNT(*) FROM detailed_rentals;  -- e.g., 16,044 rows
 
 -- 1b. Show current state of summary table
 -- SELECT COUNT(*) FROM summary_popular_films;  -- e.g., 100 rows
@@ -9,11 +9,12 @@ SELECT COUNT(*) FROM detailed_rentals;  -- e.g., 16,044 rows
 -- 2. Manually corrupt/delete data
 -- DELETE FROM detailed_rentals WHERE rental_id < 100;
 
+-- DELETE FROM summary_popular_films WHERE film_id < 100;
 
 -- 3. Show damaged state
 -- SELECT COUNT(*) FROM detailed_rentals;  -- e.g., 15,945 rows
 
--- SELECT COUNT(*) FROM summary_popular_films;  -- e.g., 100 rows
+-- SELECT COUNT(*) FROM summary_popular_films;  -- e.g., 95 rows
 
 -- 4. Run the procedure - BE SURE TO RUN TRIGGER DISABLE STATEMENT
 
