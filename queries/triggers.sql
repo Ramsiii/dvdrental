@@ -36,9 +36,12 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- TRIGGER to update detailed_rentals
+-- TRIGGER to update detailed_rentals 
 
-CREATE OR REPLACE TRIGGER trg_sync_detailed_rentals
+-- CREATE OR REPLACE TRIGGER trg_sync_detailed_rentals --(CREATE OR REPLACE only works on V 14+)
+
+DROP TRIGGER IF EXISTS trg_sync_detailed_rentals ON rental; -- Use for Virtual Lab - V 13.3
+CREATE TRIGGER trg_sync_detailed_rentals
 AFTER INSERT ON rental
 FOR EACH ROW
 EXECUTE FUNCTION sync_detailed_rentals();
@@ -79,7 +82,10 @@ $$ LANGUAGE plpgsql;
 
 --TRIGGER to update summary_popular_films
 
-CREATE OR REPLACE TRIGGER trg_update_summary
+-- CREATE OR REPLACE TRIGGER trg_update_summary --(CREATE OR REPLACE only works on V 14+)
+
+DROP TRIGGER IF EXISTS trg_update_summary ON detailed_rentals; --Use for Virtual Lab - V 13.3
+CREATE TRIGGER trg_update_summary
 AFTER INSERT ON detailed_rentals
 FOR EACH ROW
 EXECUTE FUNCTION update_summary_table();
