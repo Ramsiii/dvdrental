@@ -5,6 +5,9 @@ CREATE OR REPLACE PROCEDURE refresh_rental_analysis()
 LANGUAGE plpgsql
 AS $$
 BEGIN
+    -- Disable Trigger before re-populating table (Triggers execute updates after each insert)
+    ALTER TABLE detailed_rentals DISABLE TRIGGER trg_update_summary;
+
     -- Clear existing data
     TRUNCATE TABLE detailed_rentals;
     TRUNCATE TABLE summary_popular_films;
@@ -31,5 +34,8 @@ BEGIN
     GROUP BY film_id, title
     ORDER BY total_rentals DESC
     LIMIT 100;
+
+    -- Re-Enable Trigger after re-populating table
+    ALTER TABLE detailed_rentals ENABLE TRIGGER trg_update_summary;
 END;
 $$;

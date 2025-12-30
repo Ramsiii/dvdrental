@@ -1,7 +1,6 @@
 --- POPULATE TABLES ---
 
--- Disable Trigger before populating table
-
+-- Disable Trigger before populating table (Triggers execute updates after each insert)
 ALTER TABLE detailed_rentals DISABLE TRIGGER trg_update_summary;
 
 --populate detailed_rentals Table

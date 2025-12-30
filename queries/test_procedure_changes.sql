@@ -16,16 +16,9 @@
 
 -- SELECT COUNT(*) FROM summary_popular_films;  -- e.g., 95 rows
 
--- 4. Run the procedure - BE SURE TO RUN TRIGGER DISABLE STATEMENT
-
--- Disable Trigger before re-populating table
-
--- ALTER TABLE detailed_rentals DISABLE TRIGGER trg_update_summary;
+-- 4. Run the procedure
 
 -- CALL refresh_rental_analysis();
-
--- Re-Enable Trigger after re-populating table
--- ALTER TABLE detailed_rentals ENABLE TRIGGER trg_update_summary;
 
 -- 5. Show restored state
 -- SELECT COUNT(*) FROM detailed_rentals;  -- Back to 16,044
