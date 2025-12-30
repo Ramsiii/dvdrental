@@ -1,7 +1,7 @@
 -- In order to start from scratch, DROP tables and restart
 
--- DROP TABLE IF EXISTS summary_popular_films CASCADE;
--- DROP TABLE IF EXISTS detailed_rentals CASCADE;
+DROP TABLE IF EXISTS summary_popular_films CASCADE;
+DROP TABLE IF EXISTS detailed_rentals CASCADE;
 
 -- get_time_period Function to replace timestamp with Quarter time period
 
@@ -29,5 +29,5 @@ CREATE TABLE IF NOT EXISTS summary_popular_films (
     film_id INTEGER PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     total_rentals INTEGER NOT NULL,
-    rank INTEGER NOT NULL
+    popularity_rank INTEGER NOT NULL
 );

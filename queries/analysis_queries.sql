@@ -8,7 +8,7 @@
 
 -- DISPLAY summary_popular_films ordered by rank
 
-SELECT * FROM summary_popular_films ORDER BY rank;
+SELECT * FROM summary_popular_films ORDER BY popularity_rank;
 
 
 

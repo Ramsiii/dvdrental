@@ -22,13 +22,13 @@ BEGIN
         WHERE film_id = NEW.film_id;
     ELSE
         -- Insert new film (rank calculated separately)
-        INSERT INTO summary_popular_films (film_id, title, total_rentals, rank)
+        INSERT INTO summary_popular_films (film_id, title, total_rentals, popularity_rank)
         VALUES (NEW.film_id, NEW.title, 1, 0);
     END IF;
     
     -- Recalculate all ranks after insert
     UPDATE summary_popular_films
-    SET rank = subquery.new_rank
+    SET popularity_rank = subquery.new_rank
     FROM (
         SELECT 
             film_id,
