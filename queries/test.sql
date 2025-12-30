@@ -1,6 +1,6 @@
 -- List all existing Triggers:
 
-SELECT * FROM pg_trigger WHERE tgname LIKE 'trg_%';
+-- SELECT * FROM pg_trigger WHERE tgname LIKE 'trg_%';
 
 -- Disable Trigger
 
