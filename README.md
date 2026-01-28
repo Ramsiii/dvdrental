@@ -1,3 +1,9 @@
+For this project, I used PostgreSQL, pgAdmin4, and Cursor IDE.
+For the presentation, I used WGU's "Labs on Demand Assessment Environment" for the final project submission.
+Due to the outdated version of PostgreSQL running on this virtual machine (V 13.3) I had to adapt some SQL queries. e.g. DROP TRIGGER IF EXISTS + CREATE TRIGGER in lieu of CREATE OR REPLACE (V 14+).
+
+The DVD database contains data from 2005 and 2006, spanning three quarters: 2005-Q2, 2005-Q3, and 2006-Q1.
+
 The task from WGU: "Summarize one real-world written business report that can be created from the DVD Dataset."
 
 The hypothetical scenario:
@@ -10,4 +16,6 @@ The more specific question answered is:
 
 Which are the 100 most popular titles across the entire dataset spanning 2005-2006?
 Clients will pay for tiers of “movies per week,” and the movies will be automatically downloaded to their home PCs by a specific date. Because of limited bandwidth, I aim to start by digitizing the first 100 most popular movies and add new releases over time. My project aims to answer the question “Which are the 100 most popular titles over time?” with the aim to answer the main question: “Which 100 titles should we digitize first?”
+
+
 
